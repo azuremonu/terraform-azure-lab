@@ -61,7 +61,7 @@ resource "azurerm_linux_virtual_machine" "vmdetails" {
   name                            = "terra-vm"
   resource_group_name             = azurerm_resource_group.rgdetails.name
   location                        = azurerm_resource_group.rgdetails.location
-  size                            = "Standard_B1s"
+  size                            = "Standard_B2s"
   admin_username                  = "adminuser"
   admin_password                  = "Admin@12345678"
   disable_password_authentication = false   # ← Password allow karo
