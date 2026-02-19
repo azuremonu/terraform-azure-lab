@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "rgdetails" {
   name     = "rg-monu"
-  location = "East US"
+  location = "West US 2"    # ← Ye karo
 }
 resource "azurerm_virtual_network" "vnetdetails" {
   name                = "terra-network"
@@ -61,7 +61,7 @@ resource "azurerm_linux_virtual_machine" "vmdetails" {
   name                            = "terra-vm"
   resource_group_name             = azurerm_resource_group.rgdetails.name
   location                        = azurerm_resource_group.rgdetails.location
-  size                            = "Standard_DS1_v2"
+  size                            = "Standard_B1s"
   admin_username                  = "adminuser"
   admin_password                  = "Admin@12345678"
   disable_password_authentication = false   # ← Password allow karo
