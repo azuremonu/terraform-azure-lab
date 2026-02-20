@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "rgdetails" {
   location = "West US 2"    # ← Ye karo
 }
 #Storage account
-
+/**
 resource "azurerm_storage_account" "storagedetails" {
   count                    = 5
   name                     = "${count.index}terrastrgacnt00111"
@@ -16,3 +16,4 @@ resource "azurerm_storage_account" "storagedetails" {
     environment = "staging"
   }
 }
+*/
