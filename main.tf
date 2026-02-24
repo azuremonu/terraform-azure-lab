@@ -18,11 +18,11 @@ resource "azurerm_storage_account" "storagedetails" {
 }
 */
 
-variable "resource_group"{
-  type = map(object{
+variable "resource_group" {
+   type = map(object({
     resource_group_name = string
-    location            = string }
-  )
+    location            = string
+  }))
   default = {
     "rg1"={
       resource_group_name="rg-test1"
