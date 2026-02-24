@@ -65,7 +65,7 @@ resource "azurerm_storage_account" "storage" {
 
   depends_on = [ azurerm_resource_group.rg ]
 }
-resource azurem_storage_container "blob" {
+resource "azurerm_storage_container" "blob" {
   for_each = var.resource_group
   name                  = each.value.blob_container_name
   storage_account_name  = each.value.storage_account_name
@@ -73,7 +73,7 @@ resource azurem_storage_container "blob" {
 
   depends_on = [ azurerm_storage_account.storage ]
 }
-resource azure_storage_blob "blobfile" {
+resource azurerm_storage_blob "blobfile" {
   for_each = var.resource_group
   name                   = "${each.value.blob_container_name}.txt"
   storage_account_name   = each.value.storage_account_name
@@ -81,5 +81,5 @@ resource azure_storage_blob "blobfile" {
   type                   = "Block"
   source                 = each.value.blobfile_name
 
-  depends_on = [ azurem_storage_container.blob ]
+  depends_on = [ azurerm_storage_container.blob ]
 }
