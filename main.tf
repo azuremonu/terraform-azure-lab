@@ -141,7 +141,7 @@ resource azurerm_linux_virtual_machine "vm_details" {
   network_interface_ids = [
     azurerm_network_interface.nic_details.id,
   ]
-  size               = "Standard_DS1_v2"
+  size               = "Standard_L2aos_v4"
   admin_username     = "azureuser"
   admin_password     = "P@ssw0rd1234!"
   disable_password_authentication = "false"
