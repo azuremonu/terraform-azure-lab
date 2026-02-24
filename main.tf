@@ -72,6 +72,8 @@ resource "azurerm_storage_container" "blob" {
 }
 */
 
+
+/*
 data azurerm_resource_group "rgdetails" {
   name = "data-rg"
 }
@@ -170,3 +172,6 @@ resource azurerm_virtual_machine_data_disk_attachment "data_disk_attachment" {
   lun               = 0
   caching           = "ReadWrite"
 }
+
+*/
+
