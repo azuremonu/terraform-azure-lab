@@ -75,7 +75,7 @@ resource "azurerm_storage_container" "blob" {
 data azurerm_resource_group rgdetails {
   name = "data-rg"
 }
-resource azurerm_vnet vnetdetails {
+resource azurerm_virtual_network vnetdetails {
   name                = "data-vnet"
   address_space       = ["10.0.0.0/16"]
   location            = data.azurerm_resource_group.rgdetails.location
@@ -154,16 +154,17 @@ resource azurerm_linux_virtual_machine vm_details {
     version   = "latest"
   }
 }
-resource azurerm_disk data_disk {
+resource azurerm_managed_disk data_disk {
   name                 = "data-disk"
   location             = data.azurerm_resource_group.rgdetails.location
   resource_group_name  = data.azurerm_resource_group.rgdetails.name
-  disk_size_gb        = 10
   storage_account_type = "Standard_LRS"
+  create_option        = "Empty"
+  disk_size_gb         = 10
 }
 resource azurerm_virtual_machine_data_disk_attachment data_disk_attachment {
   virtual_machine_id = azurerm_linux_virtual_machine.vm_details.id
-  managed_disk_id   = azurerm_disk.data_disk.id
+  managed_disk_id   = azurerm_managed_disk.data_disk.id
   lun               = 0
   caching           = "ReadWrite"
 }
