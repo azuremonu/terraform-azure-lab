@@ -24,7 +24,6 @@ variable "resource_group" {
     location            = string
     storage_account_name = string
     blob_container_name = string
-    blobfile_name = string
     }))
   default = {
     "rg1"={
