@@ -19,7 +19,7 @@ resource "azurerm_storage_account" "storagedetails" {
 */
 
 variable "resource_group"{
-  type = map(object,{
+  type = map(object{
     resource_group_name = string
     location            = string }
   )
