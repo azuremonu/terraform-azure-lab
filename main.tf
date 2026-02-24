@@ -30,21 +30,21 @@ variable "resource_group" {
     "rg1"={
       resource_group_name="rg-test1"
       location="east us"
-      storage_account_name = "sttest896936001"
+      storage_account_name = "stmonukr89690001"
       blob_container_name = "data"
       blobfile_name = "C:\\terraform-azure-lab\\data.txt"
     },
     "rg2"={
       resource_group_name="rg-test2"
       location="west us"
-      storage_account_name = "sttest896936001"
+      storage_account_name = "stmonukr896990002"
       blob_container_name = "file"
       blobfile_name = "C:\\terraform-azure-lab\\file.txt"
     },
     "rg3"={
       resource_group_name="rg-test3"
       location="central us"
-      storage_account_name = "sttest896936001"
+      storage_account_name = "stmonukr89690003"
       blob_container_name = "logs"
       blobfile_name = "C:\\terraform-azure-lab\\logs.txt"
     }
