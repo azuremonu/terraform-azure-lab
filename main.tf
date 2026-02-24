@@ -119,8 +119,8 @@ resource azurerm_public_ip "public_ip_details" {
   name                = "data-public-ip"
   location            = data.azurerm_resource_group.rgdetails.location
   resource_group_name = data.azurerm_resource_group.rgdetails.name
-  allocation_method   = "Dynamic"
-  sku                 = "Basic"
+  allocation_method   = "Static"
+  sku                 = "Standard"
 }
 resource azurerm_network_interface "nic_details" {
   name                = "data-nic"
