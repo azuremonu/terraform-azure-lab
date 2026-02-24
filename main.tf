@@ -18,6 +18,7 @@ resource "azurerm_storage_account" "storagedetails" {
 }
 */
 
+/*
 variable "resource_group" {
    type = map(object({
     resource_group_name = string
@@ -69,3 +70,5 @@ resource "azurerm_storage_container" "blob" {
 
   depends_on = [ azurerm_storage_account.storage ]
 }
+*/
+
