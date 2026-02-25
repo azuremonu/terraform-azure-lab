@@ -175,40 +175,4 @@ resource azurerm_virtual_machine_data_disk_attachment "data_disk_attachment" {
 
 */
 
-data azurerm_resource_group "rgdetails" {
-  name = "data-rg"
-}
-resource "azurerm_network_security_group" "nsgdetails" {
-  name = "demo-nsg"
-  location = data.azurerm_resource_group.rgdetails.location
-  resource_group_name = data.azurerm_resource_group.rgdetails.name
-}
-resource "azurerm_network_security_rule" "demo-nsg-rules" {
 
-  for_each = var.security_rules
-  name                        = each.value.name
-  priority                    = each.value.priority
-  direction                   = "Inbound"
-  access                      = "Allow"
-  protocol                    = "*"
-  source_port_range           = "*"
-  destination_port_range      = "${each.value.destination_port_range}"
-  source_address_prefix       = "*"
-  destination_address_prefix  = "*"
-  resource_group_name         = data.azurerm_resource_group.rgdetails.name
-  network_security_group_name = azurerm_network_security_group.nsgdetails.name
-}
-
-resource "azurerm_virtual_network" "vnetdetails" {
-  name                = "demo-vnet"
-  address_space       = ["10.0.0.0/16"]
-  location            = data.azurerm_resource_group.rgdetails.location
-  resource_group_name = data.azurerm_resource_group.rgdetails.name
-}
-resource "azurerm_subnet" "subnetdetails" {
-  for_each = var.subnet
-  name                 = each.value.name
-  resource_group_name  = data.azurerm_resource_group.rgdetails.name
-  virtual_network_name = azurerm_virtual_network.vnetdetails.name
-  address_prefixes     = each.value.address_prefixes
-}
