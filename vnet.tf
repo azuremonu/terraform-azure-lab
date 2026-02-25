@@ -1,4 +1,4 @@
-/*
+
 resource "azurerm_virtual_network" "vnetdetails" {
   name                = "demo-vnet"
   address_space       = ["10.0.0.0/16"]
@@ -12,4 +12,3 @@ resource "azurerm_subnet" "subnetdetails" {
   virtual_network_name = azurerm_virtual_network.vnetdetails.name
   address_prefixes     = each.value.address_prefixes
 }
-*/

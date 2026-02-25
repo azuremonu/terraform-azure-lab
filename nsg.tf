@@ -1,4 +1,3 @@
-/*
 resource "azurerm_network_security_group" "nsgdetails" {
   name = "demo-nsg"
   location = data.azurerm_resource_group.rgdetails.location
@@ -19,4 +18,3 @@ resource "azurerm_network_security_rule" "demo-nsg-rules" {
   resource_group_name         = data.azurerm_resource_group.rgdetails.name
   network_security_group_name = azurerm_network_security_group.nsgdetails.name
 }
-*/
