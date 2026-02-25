@@ -27,3 +27,27 @@ variable "security_rules" {
     }
   }
 }
+variable "subnet" {
+    type = map(object({
+        name                 = string
+        address_prefixes     = list(string)
+    }))
+    default = {
+    "subnet1" = {
+        name             = "private-subnet"
+        address_prefixes = ["10.0.1.0/24"]
+    },
+    "subnet2" = {
+        name             = "public-subnet"
+        address_prefixes = ["10.0.2.0/24"]
+    },
+    "subnet3" = {
+        name             = "dmz-subnet"
+        address_prefixes = ["10.0.3.0/24"]
+    },
+    "subnet4" = {
+        name             = "app-subnet"
+        address_prefixes = ["10.0.4.0/24"]
+    }
+    }
+    }
