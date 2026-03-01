@@ -5,5 +5,5 @@ variable "name" {
 variable "location" {
   type = string
   description = "Azure Region"
-  default = "East US"
+  default = "eastus"
 }
