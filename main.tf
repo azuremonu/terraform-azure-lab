@@ -1,5 +1,5 @@
 module "dev" {
-  source = "./modules/environment"
+  source = "./modules/base_infrastructure"
   env_name = "dev"
   location = "eastus"
   vnet_address_space = "10.1.0.0/16"
@@ -7,7 +7,7 @@ module "dev" {
   storage_account_name = "devstoragelab0018969"
 }
 module "prod" {
-  source = "./modules/environment"
+  source = "./modules/base_infrastructure"
   env_name = "prod"
   location = "eastus"
   vnet_address_space = "10.2.0.0/16"
@@ -15,7 +15,7 @@ module "prod" {
   storage_account_name = "prodstoragelab0018969"    
 }
 module "stage" {
-  source = "./modules/environment"
+  source = "./modules/base_infrastructure"
   env_name = "stage"
   location = "eastus"   
   vnet_address_space = "10.3.0.0/16"
