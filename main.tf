@@ -43,3 +43,4 @@ module "staging" {
   vnet_address_space = "10.3.0.0/16"
   subnet_prefix = "10.3.0.0/24"
   storage_account_name = "stagingstoragelab0018969"
+}
