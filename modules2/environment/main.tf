@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "dev-rg" {
-  name = "dev-rg"
+  name = "devv-rg"
   location = var.location
 }
 resource "azurerm_virtual_network" "dev-vnet" {
