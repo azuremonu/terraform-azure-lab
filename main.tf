@@ -1,4 +1,4 @@
-module "dev" {
+/* module "dev" {
   source ="./modules/environment"
   env_name = "dev"
   location = "eastus"
@@ -22,3 +22,24 @@ module "staging" {
   subnet_prefix = "10.3.0.0/24"
   storage_account_name = "stagingstoragelab0018969"
 }
+*/
+module "dev" {
+  source ="./modules2/environment"
+  location = "centralus"
+  vnet_address_space = "10.1.0.0/16"
+  subnet_prefix = "10.1.0.0/24"
+  storage_account_name = "devstoragelab00189696"
+}
+module "prod" {
+  source ="./modules2/environment"
+  location = "centralus"
+  vnet_address_space = "10.2.0.0/16"
+  subnet_prefix = "10.2.0.0/24"
+  storage_account_name = "prodstoragelab00189696"
+}
+module "staging" {
+  source ="./modules2/environment"
+  location = "centralus"
+  vnet_address_space = "10.3.0.0/16"
+  subnet_prefix = "10.3.0.0/24"
+  storage_account_name = "stagingstoragelab0018969"
