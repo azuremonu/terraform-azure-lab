@@ -1,33 +1,33 @@
 resource "azurerm_resource_group" "rgdetails" {
-  name     = "rg-monu"
-  location = "West US 2"   
+  name     = var.rg_name
+  location = var.location   
 }
 #VNET
 resource "azurerm_virtual_network" "vnetdetails" {
   name                = "terra-network"
-  location            = azurerm_resource_group.rgdetails.location
-  resource_group_name = azurerm_resource_group.rgdetails.name
-  address_space       = ["10.0.0.0/16"]
+  location            = var.location
+  resource_group_name = var.rg_name
+  address_space       = var.address_space
   dns_servers         = ["10.0.0.4", "10.0.0.5"]
 }
 #Subnet 1
 resource "azurerm_subnet" "subnet1details" {
   name                 = "subnet1"
-  resource_group_name  = azurerm_resource_group.rgdetails.name
+  resource_group_name  = var.rg_name
   virtual_network_name = azurerm_virtual_network.vnetdetails.name
-  address_prefixes     = ["10.0.1.0/24"]
+  address_prefixes     = ["var.subnet_prefix[0]"]
 }
 #Subnet 2
 resource "azurerm_subnet" "subnet2details" {
   name                 = "subnet2"
-  resource_group_name  = azurerm_resource_group.rgdetails.name
+  resource_group_name  = var.rg_name
   virtual_network_name = azurerm_virtual_network.vnetdetails.name
-  address_prefixes     = ["10.0.2.0/24"]
+  address_prefixes     = ["var.subnet_prefix[1]"]
 }
 # Network Interface
 resource "azurerm_network_interface" "nicdetails" {
   name                = "terra-nic"
-  location            = azurerm_resource_group.rgdetails.location
+  location            = var.location
   resource_group_name = azurerm_resource_group.rgdetails.name
 
   ip_configuration {
@@ -40,15 +40,15 @@ resource "azurerm_network_interface" "nicdetails" {
 #Public IP
 resource "azurerm_public_ip" "pubipdetails" {
   name                = "terra_pub_ip"
-  resource_group_name = azurerm_resource_group.rgdetails.name
-  location            = azurerm_resource_group.rgdetails.location
+  resource_group_name = var.rg_name
+  location            = var.location
   allocation_method   = "Static"
 }
 #NSG
 resource "azurerm_network_security_group" "nsgdetails" {
   name                = "terra-nsg"
-  location            = azurerm_resource_group.rgdetails.location
-  resource_group_name = azurerm_resource_group.rgdetails.name
+  location            = var.location
+  resource_group_name = var.rg_name
 
   security_rule {
     name                       = "Allow-SSH"
@@ -69,12 +69,12 @@ resource "azurerm_network_interface_security_group_association" "nsglink" {
 }
 # Virtual Machine
 resource "azurerm_linux_virtual_machine" "vmdetails" {
-  name                            = "terra-vm"
-  resource_group_name             = azurerm_resource_group.rgdetails.name
-  location                        = azurerm_resource_group.rgdetails.location
-  size                            = "Standard_D2ls_v5"
-  admin_username                  = "adminuser"
-  admin_password                  = "Admin@12345678"
+  name                            = var.vm_name
+  resource_group_name             = var.rg_name
+  location                        = var.location
+  size                            = var.vm_size
+  admin_username                  = var.admin_username
+  admin_password                  = var.admin_password
   disable_password_authentication = false   # ← Password allow karo
 
   network_interface_ids = [
