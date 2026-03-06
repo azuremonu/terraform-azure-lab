@@ -15,14 +15,14 @@ resource "azurerm_subnet" "subnet1details" {
   name                 = "subnet1"
   resource_group_name  = azurerm_resource_group.rgdetails.name
   virtual_network_name = azurerm_virtual_network.vnetdetails.name
-  address_prefixes     = ["var.subnet_prefix[0]"]
+  address_prefixes     = [var.subnet_prefix[0]]
 }
 #Subnet 2
 resource "azurerm_subnet" "subnet2details" {
   name                 = "subnet2"
   resource_group_name  = azurerm_resource_group.rgdetails.name
   virtual_network_name = azurerm_virtual_network.vnetdetails.name
-  address_prefixes     = ["var.subnet_prefix[1]"]
+  address_prefixes     = [var.subnet_prefix[1]]
 }
 # Network Interface
 resource "azurerm_network_interface" "nicdetails" {
