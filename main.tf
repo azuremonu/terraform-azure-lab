@@ -6,21 +6,21 @@ resource "azurerm_resource_group" "rgdetails" {
 resource "azurerm_virtual_network" "vnetdetails" {
   name                = "terra-network"
   location            = var.location
-  resource_group_name = var.rg_name
+  resource_group_name = azurerm_resource_group.rgdetails.name
   address_space       = var.address_space
   dns_servers         = ["10.0.0.4", "10.0.0.5"]
 }
 #Subnet 1
 resource "azurerm_subnet" "subnet1details" {
   name                 = "subnet1"
-  resource_group_name  = var.rg_name
+  resource_group_name  = azurerm_resource_group.rgdetails.name
   virtual_network_name = azurerm_virtual_network.vnetdetails.name
   address_prefixes     = ["var.subnet_prefix[0]"]
 }
 #Subnet 2
 resource "azurerm_subnet" "subnet2details" {
   name                 = "subnet2"
-  resource_group_name  = var.rg_name
+  resource_group_name  = azurerm_resource_group.rgdetails.name
   virtual_network_name = azurerm_virtual_network.vnetdetails.name
   address_prefixes     = ["var.subnet_prefix[1]"]
 }
@@ -48,7 +48,7 @@ resource "azurerm_public_ip" "pubipdetails" {
 resource "azurerm_network_security_group" "nsgdetails" {
   name                = "terra-nsg"
   location            = var.location
-  resource_group_name = var.rg_name
+  resource_group_name = azurerm_resource_group.rgdetails.name
 
   security_rule {
     name                       = "Allow-SSH"
