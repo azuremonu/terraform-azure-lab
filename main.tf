@@ -1,3 +1,4 @@
+/*
 resource "azurerm_resource_group" "rgdetails" {
   name     = var.rg_name
   location = var.location   
@@ -93,3 +94,5 @@ resource "azurerm_linux_virtual_machine" "vmdetails" {
     version   = "latest"
   }
 }
+
+*/
