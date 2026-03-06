@@ -1,4 +1,3 @@
-/*
 variable "vm_name" {
   type = string
   default ="terra-vm"
@@ -33,4 +32,3 @@ variable "subnet_prefix" {
   type = list
   default = ["10.0.1.0/24","10.0.2.0/24"]
 }
-*/
