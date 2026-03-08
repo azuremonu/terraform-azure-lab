@@ -1,3 +1,3 @@
 variable "location" {
-  default = centralindia
+  default = "centralindia"
 }
