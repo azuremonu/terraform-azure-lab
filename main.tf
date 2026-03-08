@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rgdetails" {
-  count    = 10
-  name     = "demo-rg-0${count.index+1}"
+  for_each = toset(["dev", "prod", "stage"])
+  name     = "demo-rg-${for_each.key}"
   location = var.location
 }
