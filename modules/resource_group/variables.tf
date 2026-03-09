@@ -1,5 +1,4 @@
-/*variable "location" {
+variable "location" {
   default = "japaneast"
   type = string
 }
-*/
