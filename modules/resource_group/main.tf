@@ -1,7 +1,6 @@
 
 
 resource "azurerm_resource_group" "rgdetails" {
-  count = 5
-  name = "rg-${count.index}"
+  name = var.name
   location = var.location
 }

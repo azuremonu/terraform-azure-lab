@@ -6,7 +6,6 @@ variable "location" {
 }
 variable "name" {
   type = string
-  default = "demo-"
 }
 
 
