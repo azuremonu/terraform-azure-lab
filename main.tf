@@ -1,3 +1,4 @@
-module "resource_group" {
+/*module "resource_group" {
   source = "./modules/resource_group"
 }
+*/
