@@ -1,7 +1,7 @@
 
 
 variable "location" {
-  default = "japaneast"
+  default = "brazilsouth"
   type = string
 }
 variable "name" {
