@@ -10,10 +10,10 @@ variable "resource_group_name" {
 variable "address_space" {
   type = list(string)
 }
-variable "subnets_name" {
+variable "subnet_name" {
   type = string
 }
-variable "subnets_prefix" {
+variable "subnet_prefix" {
   type = string
 }
 variable "nsg_name" {

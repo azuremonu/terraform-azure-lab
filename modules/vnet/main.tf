@@ -6,10 +6,10 @@ resource "azurerm_virtual_network" "vnet" {
   tags = var.tags
 }
 resource "azurerm_subnet" "subnet" {
-  name = var.subnets_name
+  name = var.subnet_name
   resource_group_name = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes = [var.subnets_prefix]
+  address_prefixes = [var.subnet_prefix]
 }
 resource "azurerm_network_security_group" "nsg" {
   name = var.nsg_name
