@@ -11,8 +11,8 @@ module "vnet" {
   location            = module.resource_group.location
   resource_group_name = module.resource_group.name
   address_space       = ["10.1.0.0/16"]
-  subnets_name        = ["dev-subnet"]
-  subnets_prefix      = ["10.1.1.0/24"]
+  subnet_name         = "dev-subnet"
+  subnet_prefix       = "10.1.1.0/24"
   nsg_name            = "dev-nsg"
   tags                = { environment = "dev" }
 }

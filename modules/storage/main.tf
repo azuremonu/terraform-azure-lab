@@ -42,7 +42,7 @@ resource "azurerm_monitor_diagnostic_setting" "diag" {
   target_resource_id = "${azurerm_storage_account.sa.id}/blobServices/default"
   storage_account_id = azurerm_storage_account.sa.id
 
-  metric {
+  enabled_metric {
     category = "Transaction"
   }
 }
