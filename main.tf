@@ -41,7 +41,7 @@ module "vm" {
 module "database" {
   source              = "./modules/database"
   sql_server_name     = "dev-sqlserver-monu2024"
-  location            = module.resource_group.location
+  location            = "centralus"
   resource_group_name = module.resource_group.name
   db_name             = "dev-db"
   admin_login         = "sqladmin"

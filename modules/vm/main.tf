@@ -20,6 +20,7 @@ resource "azurerm_network_interface" "nic" {
   tags = var.tags
 }
 
+
 resource "azurerm_linux_virtual_machine" "vm" {
   name                            = var.vm_name
   location                        = var.location
@@ -36,16 +37,10 @@ resource "azurerm_linux_virtual_machine" "vm" {
   }
 
   source_image_reference {
-    publisher = "resf"
-    offer     = "rockylinux-x86_64"
-    sku       = "9-base"
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts"
     version   = "latest"
-  }
-
-  plan {
-    name      = "9-base"
-    publisher = "resf"
-    product   = "rockylinux-x86_64"
   }
 
   tags = var.tags
