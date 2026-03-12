@@ -19,6 +19,7 @@ module "vnet" {
   tags                = { environment = "dev" }
 }
 
+/*
 module "storage" {
   source               = "./modules/storage"
   storage_account_name = "devstgmonu2024"
@@ -28,6 +29,8 @@ module "storage" {
   blob_name            = "dev-blob.txt"
   tags                 = { environment = "dev" }
 }
+
+*/
 
 module "vm" {
   source              = "./modules/vm"
@@ -40,6 +43,8 @@ module "vm" {
   tags                = { environment = "dev" }
 }
 
+/*
+
 module "database" {
   source              = "./modules/database"
   sql_server_name     = "dev-sqlserver-monu9999"
@@ -50,6 +55,10 @@ module "database" {
   admin_password      = "P@ssword1234!"
   tags                = { environment = "dev" }
 }
+
+*/
+
+/*
 
 # Infra createion for Prod Environment
 module "prod_resource_group" {
@@ -102,3 +111,5 @@ module "prod_database" {
   admin_password      = "P@ssword1234!"
   tags                = { environment = "prod" }
 }
+
+*/
