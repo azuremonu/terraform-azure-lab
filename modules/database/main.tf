@@ -1,3 +1,5 @@
+/*
+
 resource "azurerm_mssql_server" "sql" {
   name                         = var.sql_server_name
   resource_group_name          = var.resource_group_name
@@ -31,3 +33,5 @@ resource "azurerm_mssql_server_microsoft_support_auditing_policy" "support_audit
   server_id = azurerm_mssql_server.sql.id
   enabled   = true
 }
+
+*/
