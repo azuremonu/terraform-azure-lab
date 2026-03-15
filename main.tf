@@ -3,7 +3,7 @@
 module "resource_group" {
   source   = "./modules/resource_group"
   name     = "dev-rg"
-  location = "eastus2"
+  location = "centralindia"
   tags     = { environment = "dev" }
 }
 

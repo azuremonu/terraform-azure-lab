@@ -46,6 +46,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   tags = var.tags
 }
 
+/*
 resource "azurerm_managed_disk" "data_disk" {
   name                 = "${var.vm_name}-datadisk"
   location             = var.location
@@ -62,3 +63,5 @@ resource "azurerm_virtual_machine_data_disk_attachment" "disk_attach" {
   lun                = 0
   caching            = "ReadWrite"
 }
+
+*/
